@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:netflix/presentation/home/screen_home.dart';
+import 'package:netflix/presentation/main_page/screen_main_page.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -29,7 +29,7 @@ void _delayForAnimation(BuildContext context) async {
     // ignore: use_build_context_synchronously
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const HomeScreen(),
+        builder: (context) => const ScreenMainPage(),
       ),
     );
   }

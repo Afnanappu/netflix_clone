@@ -4,4 +4,7 @@ import 'package:flutter/material.dart';
 class MyColors {
   static const white = Colors.white;
   static const black = Colors.black;
+  static const lightBlack = Color.fromARGB(115, 33, 33, 33);
+  static const lightGrey =  Colors.grey
+  ;
 }
