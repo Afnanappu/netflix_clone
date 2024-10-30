@@ -17,6 +17,7 @@ class NetflixApp extends StatelessWidget {
       home: const SplashScreen(),
       theme: ThemeData(
         colorScheme: const ColorScheme.dark(),
+        
       ),
     );
   }
