@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/presentation/splash/screen_splash.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const NetflixApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class NetflixApp extends StatelessWidget {
+  const NetflixApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Netflix',
+      home: const SplashScreen(),
+      theme: ThemeData(
+        colorScheme: const ColorScheme.dark(),
       ),
     );
   }
