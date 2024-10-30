@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:netflix/presentation/splash/screen_splash.dart';
 
 void main() {
-  runApp(const NetflixApp());
+  runApp(const ProviderScope(child: NetflixApp()));
 }
 
 class NetflixApp extends StatelessWidget {
