@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/themes.dart';
 import 'package:netflix/presentation/core/widgets/common_poster.dart';
+import 'package:netflix/presentation/core/widgets/top_ten_movies_poster.dart';
 
-class CommonPosterBundle extends StatelessWidget {
-  const CommonPosterBundle({
+class TopTenPosterBundle extends StatelessWidget {
+  const TopTenPosterBundle({
     super.key,
     required this.title,
     // required this.list;
@@ -30,9 +31,7 @@ class CommonPosterBundle extends StatelessWidget {
             itemCount: 10,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return CommonPoster(
-                image: image,
-              );
+              return TopTenMoviePoster(image: image, index: index+1);
             },
           ),
         )
@@ -40,4 +39,3 @@ class CommonPosterBundle extends StatelessWidget {
     );
   }
 }
-

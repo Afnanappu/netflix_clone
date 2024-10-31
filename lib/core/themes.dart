@@ -8,6 +8,13 @@ class MyTextTheme {
   );
   static TextStyle buttonThickFontFun([Color color = MyColors.black]) =>
       TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 17);
+
+  static const posterTitleFont = TextStyle(
+    fontFamily: "Netflix_Sans",
+    fontWeight: FontWeight.w700,
+    color: MyColors.white,
+    fontSize: 18,
+  );
 }
 
 BorderRadius circleBorder10() => BorderRadius.circular(10);

@@ -17,7 +17,8 @@ class NetflixApp extends StatelessWidget {
       home: const SplashScreen(),
       theme: ThemeData(
         colorScheme: const ColorScheme.dark(),
-        
+        fontFamily: 'Netflix_Sans',
+  textTheme: TextTheme(displaySmall: const TextStyle(fontWeight: FontWeight.w500)),
       ),
     );
   }
