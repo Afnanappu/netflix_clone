@@ -28,7 +28,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/animations/netflix_intro_animation.json
-    - assets/movie_posters/
+    - assets/logo/Netflix_logo.png
+    
 
 fonts:
   - family: Netflix_Sans

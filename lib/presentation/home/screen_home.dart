@@ -9,30 +9,53 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          leading: Image.asset('assets/logo/Netflix_logo.png'),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.file_download),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.search
+              ),
+            ),
+          ],
+        ),
         body: ListView(
-      children: const[
+          children: const [
+            //main poster
+            HomeMainPoster(
+              image:
+                  'https://rukminim2.flixcart.com/image/850/1000/jt8yxe80/poster/e/w/k/medium-wonder-wom11-woman-movie-poster-original-imafem3hvgkhfvuj.jpeg?q=20&crop=false',
+            ),
 
-        //main poster
-        HomeMainPoster(image: 'https://rukminim2.flixcart.com/image/850/1000/jt8yxe80/poster/e/w/k/medium-wonder-wom11-woman-movie-poster-original-imafem3hvgkhfvuj.jpeg?q=20&crop=false',),
-        
-        //poster bundles
-        CommonPosterBundle(
-          title: 'Heartfelt Movies',
-          image: "https://m.media-amazon.com/images/I/A1jNECCCyUL.jpg",
-        ),
-        CommonPosterBundle(
-          title: "We Think You'll Love This",
-          image: 'https://img.freepik.com/premium-photo/movie-poster-design_841014-8784.jpg?w=360',
-        ),
-        TopTenPosterBundle(
-          title: 'Top 10 Movies in India Today',
-          image: 'https://rukminim2.flixcart.com/image/850/1000/k0y6cnk0/poster/9/f/6/medium-peaky-blinders-tv-series-poster-for-room-office-13-inch-x-original-imafkm3uhgwyy3gn.jpeg?q=90&crop=false',
-        ),
-        CommonPosterBundle(
-          title: 'Crowd Pleasure',
-          image: 'https://www.universalpictures.com.au/tl_files/content/movies/wild_robot/posters/01.jpg',
-        ),
-      ],
-    ));
+            //poster bundles
+            CommonPosterBundle(
+              title: 'Heartfelt Movies',
+              image: "https://m.media-amazon.com/images/I/A1jNECCCyUL.jpg",
+            ),
+            CommonPosterBundle(
+              title: "We Think You'll Love This",
+              image:
+                  'https://img.freepik.com/premium-photo/movie-poster-design_841014-8784.jpg?w=360',
+            ),
+
+            //top ten movie bundle
+            TopTenPosterBundle(
+              title: 'Top 10 Movies in India Today',
+              image:
+                  'https://rukminim2.flixcart.com/image/850/1000/k0y6cnk0/poster/9/f/6/medium-peaky-blinders-tv-series-poster-for-room-office-13-inch-x-original-imafkm3uhgwyy3gn.jpeg?q=90&crop=false',
+            ),
+
+            CommonPosterBundle(
+              title: 'Crowd Pleasure',
+              image:
+                  'https://www.universalpictures.com.au/tl_files/content/movies/wild_robot/posters/01.jpg',
+            ),
+          ],
+        ));
   }
 }

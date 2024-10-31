@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/presentation/splash/screen_splash.dart';
 
 void main() {
@@ -15,10 +17,19 @@ class NetflixApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Netflix',
       home: const SplashScreen(),
+      
       theme: ThemeData(
         colorScheme: const ColorScheme.dark(),
         fontFamily: 'Netflix_Sans',
-  textTheme: TextTheme(displaySmall: const TextStyle(fontWeight: FontWeight.w500)),
+        textTheme: const TextTheme(
+          displaySmall: TextStyle(fontWeight: FontWeight.w500),
+        ),
+        appBarTheme: const AppBarTheme(
+          systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: MyColors.lightBlack),
+          backgroundColor: MyColors.transparent50,
+          elevation: 0,
+
+        )
       ),
     );
   }

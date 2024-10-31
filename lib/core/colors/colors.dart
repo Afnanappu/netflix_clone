@@ -7,4 +7,6 @@ class MyColors {
   static const lightBlack = Color.fromARGB(115, 33, 33, 33);
   static const lightGrey = Colors.grey;
   static const transparent30 = Colors.black45;
+  static const transparent50 = Colors.black54;
+  static const transparent = Colors.transparent;
 }
