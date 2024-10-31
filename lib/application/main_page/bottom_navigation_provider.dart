@@ -15,6 +15,7 @@ class BottomNavigationIndexNotifier extends StateNotifier<int> {
   BottomNavigationIndexNotifier() : super(0);
 
   void updateIndex(int index) {
+    print("BottomNavigationIndex: $index");
     state = index;
   }
 }

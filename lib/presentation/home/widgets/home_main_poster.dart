@@ -18,21 +18,27 @@ class HomeMainPoster extends StatelessWidget {
       alignment: const Alignment(0, 0.8),
       children: [
         Container(
-          height: 400,
-          margin: const EdgeInsets.all(30),
+          height: 430,
+          margin: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: MyColors.lightBlack,
             borderRadius: circleBorder10(),
             border: Border.all(color: MyColors.lightGrey),
+            image: DecorationImage(
+              image: CachedNetworkImageProvider(
+                image,
+              ),
+              fit: BoxFit.fitWidth,
+            ),
           ),
-          child: ClipRRect(
-            borderRadius: circleBorder10(),
-            child: CachedNetworkImage(
-          imageUrl: image,
-          placeholder: (context, url) => const Center(child:  Text('Loading...')),
-          errorWidget: (context, url, error) => Center(child: Text(error.toString())),
-        ),
-          ),
+          //   child: ClipRRect(
+          //     borderRadius: circleBorder10(),
+          //     child: CachedNetworkImage(
+          //   imageUrl: image,
+          //   placeholder: (context, url) => const Center(child:  Text('Loading...')),
+          //   errorWidget: (context, url, error) => Center(child: Text(error.toString())),
+          // ),
+          //   ),
         ),
         const Positioned(
           left: 60,

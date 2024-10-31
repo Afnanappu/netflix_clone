@@ -29,7 +29,7 @@ class ScreenHome extends StatelessWidget {
             //main poster
             HomeMainPoster(
               image:
-                  'https://rukminim2.flixcart.com/image/850/1000/jt8yxe80/poster/e/w/k/medium-wonder-wom11-woman-movie-poster-original-imafem3hvgkhfvuj.jpeg?q=20&crop=false',
+                   'https://m.media-amazon.com/images/I/7197L2XzWxL.jpg',
             ),
 
             //poster bundles

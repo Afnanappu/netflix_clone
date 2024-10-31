@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:netflix/application/main_page/bottom_navigation_provider.dart';
 import 'package:netflix/core/colors/colors.dart';
+
 class BottomNavigationMain extends ConsumerWidget {
   const BottomNavigationMain({
     super.key,
+    required this.pageController,
   });
-
+  final PageController pageController;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bottomNavIndex = ref.watch(bottomNavigationProvider);
-    final PageController pageController =
-        ref.watch(bottomNavigationPageControllerProvider);
+
     return BottomNavigationBar(
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
@@ -25,7 +26,6 @@ class BottomNavigationMain extends ConsumerWidget {
       onTap: (index) {
         //Updating the bottom navigation index using provider.
         ref.read(bottomNavigationProvider.notifier).updateIndex(index);
-
         //updating the page controller value to jump between screens.
         pageController.jumpToPage(index);
       },

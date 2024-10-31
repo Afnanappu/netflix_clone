@@ -16,7 +16,9 @@ class ScreenMainPage extends ConsumerWidget {
     return Scaffold(
       body: PageView(
         controller: pageController,
-        allowImplicitScrolling: false,
+        onPageChanged: (value) {
+          ref.read(bottomNavigationProvider.notifier).updateIndex(value);
+        },
         children: const [
           ScreenHome(),
           ScreenGames(),
@@ -24,7 +26,9 @@ class ScreenMainPage extends ConsumerWidget {
           ScreenMyNetflix(),
         ],
       ),
-      bottomNavigationBar:const BottomNavigationMain(),
+      bottomNavigationBar: BottomNavigationMain(
+        pageController: pageController,
+      ),
     );
   }
 }

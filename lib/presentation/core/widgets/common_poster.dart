@@ -18,15 +18,21 @@ class CommonPoster extends StatelessWidget {
         color: MyColors.lightBlack,
         borderRadius: circleBorder10(),
         border: Border.all(),
-      ),
-      child: ClipRRect(
-        borderRadius: circleBorder10(),
-        child: CachedNetworkImage(
-          imageUrl: image,
-          placeholder: (context, url) => const Center(child:  Text('Loading...')),
-          errorWidget: (context, url, error) => Center(child: Text(error.toString())),
+        image: DecorationImage(
+          image: CachedNetworkImageProvider(
+            image,
+          ),
+          fit: BoxFit.fitWidth,
         ),
       ),
+      // child: ClipRRect(
+      //   borderRadius: circleBorder10(),
+      //   child: CachedNetworkImage(
+      //     imageUrl: image,
+      //     placeholder: (context, url) => const Center(child:  Text('Loading...')),
+      //     errorWidget: (context, url, error) => Center(child: Text(error.toString())),
+      //   ),
+      // ),
     );
   }
 }
