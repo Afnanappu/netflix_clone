@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/presentation/main_page/screen_main_page.dart';
-import 'package:netflix/presentation/splash/screen_splash.dart';
 
 void main() {
   runApp(const ProviderScope(child: NetflixApp()));
