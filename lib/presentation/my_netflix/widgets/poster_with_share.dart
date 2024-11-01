@@ -28,12 +28,14 @@ class CommonPosterWithShare extends StatelessWidget {
         // ),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10), topRight: Radius.circular(10)),
             child: CachedNetworkImage(
               imageUrl: image,
+              fit: BoxFit.cover,
               placeholder: (context, url) =>
                   const Center(child: Text('Loading...')),
               errorWidget: (context, url, error) =>
