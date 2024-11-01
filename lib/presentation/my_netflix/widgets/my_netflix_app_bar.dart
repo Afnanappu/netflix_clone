@@ -6,7 +6,7 @@ class MyNetflixAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final void Function()? firstOnPressed;
 
-  final IconData secondIcon;
+  final IconData? secondIcon;
 
   final void Function()? secondOnPressed;
 
@@ -22,7 +22,7 @@ class MyNetflixAppBar extends StatelessWidget implements PreferredSizeWidget {
       this.leading,
       required this.firstIcon,
       this.firstOnPressed,
-      required this.secondIcon,
+      this.secondIcon,
       this.secondOnPressed,
       this.bottom});
 
@@ -39,9 +39,10 @@ class MyNetflixAppBar extends StatelessWidget implements PreferredSizeWidget {
                 firstIcon,
                 color: MyColors.white,
               )),
-          IconButton(
-              onPressed: secondOnPressed,
-              icon: Icon(secondIcon, color: MyColors.white)),
+          if (secondIcon != null)
+            IconButton(
+                onPressed: secondOnPressed,
+                icon: Icon(secondIcon, color: MyColors.white)),
         ]);
   }
 

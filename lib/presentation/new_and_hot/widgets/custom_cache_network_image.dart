@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 
 class CustomNetworkImage extends StatelessWidget {
   final String image;
-  const CustomNetworkImage({super.key, required this.image});
+  final BoxFit fit;
+  const CustomNetworkImage({
+    super.key,
+    required this.image,
+    this.fit = BoxFit.cover,
+  });
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: image,
-      fit: BoxFit.cover,
+      fit: fit,
       placeholder: (context, url) => const Center(child: Text('Loading...')),
       errorWidget: (context, url, error) =>
           Center(child: Text(error.toString())),
