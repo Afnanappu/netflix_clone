@@ -5,7 +5,7 @@ import 'package:netflix/presentation/games/screen_games.dart';
 import 'package:netflix/presentation/home/screen_home.dart';
 import 'package:netflix/presentation/main_page/widgets/bottom_navigation_main.dart';
 import 'package:netflix/presentation/my_netflix/screen_my_netflix.dart';
-import 'package:netflix/presentation/news_and_hot/screen_news_and_hot.dart';
+import 'package:netflix/presentation/new_and_hot/screen_new_and_hot.dart';
 
 class ScreenMainPage extends ConsumerWidget {
   const ScreenMainPage({super.key});

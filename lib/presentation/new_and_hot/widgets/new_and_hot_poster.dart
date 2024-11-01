@@ -1,7 +1,6 @@
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/themes.dart';
+import 'package:netflix/presentation/new_and_hot/widgets/custom_cache_network_image.dart';
 
 class NewsAndHotPoster extends StatelessWidget {
   const NewsAndHotPoster({super.key});
@@ -9,7 +8,7 @@ class NewsAndHotPoster extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10,bottom: 20),
+      padding: const EdgeInsets.only(top: 10, bottom: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -22,15 +21,9 @@ class NewsAndHotPoster extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                CachedNetworkImage(
-                  imageUrl:
-                      'https://themarketingbirds.com/wp-content/uploads/2021/04/nysm2-official-quad-scaled.jpg',
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) =>
-                      const Center(child: Text('Loading...')),
-                  errorWidget: (context, url, error) =>
-                      Center(child: Text(error.toString())),
-                ),
+                const CustomNetworkImage(
+                    image:
+                        'https://themarketingbirds.com/wp-content/uploads/2021/04/nysm2-official-quad-scaled.jpg'),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

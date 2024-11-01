@@ -1,8 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/themes.dart';
 import 'package:netflix/presentation/home/widgets/elevated_button_for_home.dart';
+import 'package:netflix/presentation/new_and_hot/widgets/custom_cache_network_image.dart';
 
 class CommonPosterWithShare extends StatelessWidget {
   const CommonPosterWithShare({
@@ -33,14 +34,7 @@ class CommonPosterWithShare extends StatelessWidget {
           ClipRRect(
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-            child: CachedNetworkImage(
-              imageUrl: image,
-              fit: BoxFit.cover,
-              placeholder: (context, url) =>
-                  const Center(child: Text('Loading...')),
-              errorWidget: (context, url, error) =>
-                  Center(child: Text(error.toString())),
-            ),
+            child: CustomNetworkImage(image: image),
           ),
           const SizedBox(
             height: 45,
@@ -54,7 +48,6 @@ class CommonPosterWithShare extends StatelessWidget {
               ),
               bgColor: MyColors.blackHalf,
             ),
-            // ElevatedButton.icon(label: Text('Share'),icon: Icon(Icons.share), onPressed: (){},style: ElevatedButton.styleFrom(backgroundColor: MyColors.lightGrey,shape: Rectan),)
           )
         ],
       ),

@@ -14,21 +14,24 @@ class MyNetflixAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final Widget? leading;
 
-  const MyNetflixAppBar({
-    super.key,
-    this.title,
-    this.leading,
-    required this.firstIcon,
-    this.firstOnPressed,
-    required this.secondIcon,
-    this.secondOnPressed,
-  });
+  final PreferredSizeWidget? bottom;
+
+  const MyNetflixAppBar(
+      {super.key,
+      this.title,
+      this.leading,
+      required this.firstIcon,
+      this.firstOnPressed,
+      required this.secondIcon,
+      this.secondOnPressed,
+      this.bottom});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
         title: title != null ? Text(title!) : null,
         leading: leading,
+        bottom: bottom,
         actions: [
           IconButton(
               onPressed: firstOnPressed,
