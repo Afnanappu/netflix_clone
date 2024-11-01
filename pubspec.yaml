@@ -29,6 +29,7 @@ flutter:
   assets:
     - assets/animations/netflix_intro_animation.json
     - assets/logo/Netflix_logo.png
+    - assets/logo/profile.jpg
     
 
 fonts:

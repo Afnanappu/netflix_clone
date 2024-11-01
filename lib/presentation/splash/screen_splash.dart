@@ -27,7 +27,7 @@ class SplashScreen extends StatelessWidget {
 void _delayForAnimation(BuildContext context) async {
     await Future.delayed(const Duration(seconds: 6));
     // ignore: use_build_context_synchronously
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (context) => const ScreenMainPage(),
       ),

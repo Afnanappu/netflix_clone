@@ -14,14 +14,21 @@ class BottomNavigationMain extends ConsumerWidget {
     final bottomNavIndex = ref.watch(bottomNavigationProvider);
 
     return BottomNavigationBar(
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
-        BottomNavigationBarItem(
+      items: [
+        const BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined), label: 'Home'),
+        const BottomNavigationBarItem(
             icon: Icon(Icons.gamepad_outlined), label: 'Games'),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
             icon: Icon(Icons.video_collection_outlined), label: 'News & Hot'),
         BottomNavigationBarItem(
-            icon: Icon(Icons.handshake_outlined), label: 'My Netflix'),
+            icon: SizedBox(
+                width: 25,
+                height: 25,
+                child: Image.asset(
+                  'assets/logo/profile.jpg',
+                )),
+            label: 'My Netflix'),
       ],
       onTap: (index) {
         //Updating the bottom navigation index using provider.

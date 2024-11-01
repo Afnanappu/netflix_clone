@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/themes.dart';
-import 'package:netflix/presentation/core/widgets/top_ten_movies_poster.dart';
 
-class TopTenPosterBundle extends StatelessWidget {
-  const TopTenPosterBundle({
+
+import 'package:netflix/presentation/my_netflix/widgets/poster_with_share.dart';
+
+class CommonPosterShareBundle extends StatelessWidget {
+  const CommonPosterShareBundle({
     super.key,
     required this.title,
     // required this.list;
@@ -24,13 +26,15 @@ class TopTenPosterBundle extends StatelessWidget {
               style: MyTextTheme.posterTitleFont,
             )),
         SizedBox(
-          height: 200,
+          height: 235,
           child: ListView.builder(
             shrinkWrap: true,
             itemCount: 10,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return TopTenMoviePoster(image: image, index: index+1);
+              return CommonPosterWithShare(
+                image: image,
+              );
             },
           ),
         )
@@ -38,3 +42,4 @@ class TopTenPosterBundle extends StatelessWidget {
     );
   }
 }
+
