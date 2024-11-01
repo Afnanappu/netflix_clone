@@ -11,7 +11,11 @@ class ScreenMyNetflix extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyNetflixAppBar(),
+      appBar: const MyNetflixAppBar(
+        title: 'My Netflix',
+        firstIcon: Icons.search,
+        secondIcon: Icons.menu_rounded,
+      ),
       body: ListView(
         children: const [
           SizedBox10(height: 50),
@@ -32,7 +36,9 @@ class ScreenMyNetflix extends StatelessWidget {
             icon: Icons.file_download,
             icColor: Colors.blue,
           ),
-          SizedBox10(height: 30,),
+          SizedBox10(
+            height: 30,
+          ),
           CommonPosterShareBundle(
             title: 'TV Shows & Movie You Liked',
             image:

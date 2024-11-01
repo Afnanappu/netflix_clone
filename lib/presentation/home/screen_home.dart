@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix/presentation/core/widgets/common_poster_bundle.dart';
 import 'package:netflix/presentation/core/widgets/top_ten_poster_bundle.dart';
 import 'package:netflix/presentation/home/widgets/home_main_poster.dart';
+import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
@@ -9,27 +10,17 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-        appBar: AppBar(
+        extendBodyBehindAppBar: true,
+        appBar: MyNetflixAppBar(
           leading: Image.asset('assets/logo/Netflix_logo.png'),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.file_download),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.search
-              ),
-            ),
-          ],
+          firstIcon: Icons.download_sharp,
+          secondIcon: Icons.search,
         ),
         body: ListView(
           children: const [
             //main poster
             HomeMainPoster(
-              image:
-                   'https://m.media-amazon.com/images/I/7197L2XzWxL.jpg',
+              image: 'https://m.media-amazon.com/images/I/7197L2XzWxL.jpg',
             ),
 
             //poster bundles

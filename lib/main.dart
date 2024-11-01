@@ -25,6 +25,7 @@ class NetflixApp extends StatelessWidget {
           displaySmall: TextStyle(fontWeight: FontWeight.w500),
         ),
         appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(color: MyColors.white,),
           titleTextStyle: TextStyle(
               color: MyColors.white,
               fontFamily: 'Netflix_Sans',
