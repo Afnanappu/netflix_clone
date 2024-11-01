@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 
@@ -8,13 +7,16 @@ class NavigationTileMyNetflixPage extends StatelessWidget {
     required this.text,
     required this.icon,
     required this.icColor,
+    this.onTap,
   });
   final String text;
   final IconData icon;
   final Color icColor;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: onTap,
       title: Text(
         text,
         style: const TextStyle(

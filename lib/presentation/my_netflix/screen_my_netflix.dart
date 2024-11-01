@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/presentation/core/widgets/custom_sized_box.dart';
+import 'package:netflix/presentation/downloads/screen_downloads.dart';
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart';
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_profile.dart';
 import 'package:netflix/presentation/my_netflix/widgets/navigation_tile.dart';
@@ -17,35 +18,38 @@ class ScreenMyNetflix extends StatelessWidget {
         secondIcon: Icons.menu_rounded,
       ),
       body: ListView(
-        children: const [
-          SizedBox10(height: 50),
+        children: [
+          const SizedBox10(height: 50),
 
           //profile
-          MyNetflixProfile(),
-          SizedBox10(height: 50),
+          const MyNetflixProfile(),
+          const SizedBox10(height: 50),
           //Notification
-          NavigationTileMyNetflixPage(
+          const NavigationTileMyNetflixPage(
             text: 'Notifications',
             icon: Icons.notifications,
             icColor: Colors.red,
           ),
-          SizedBox10(),
+          const SizedBox10(),
           //Downloads
           NavigationTileMyNetflixPage(
             text: 'Downloads',
             icon: Icons.file_download,
             icColor: Colors.blue,
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const ScreenDownloads(),),
+            ),
           ),
-          SizedBox10(
+          const SizedBox10(
             height: 30,
           ),
-          CommonPosterShareBundle(
+          const CommonPosterShareBundle(
             title: 'TV Shows & Movie You Liked',
             image:
                 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/1fde52184551123.6553f66dbce60.jpg',
           ),
-          SizedBox10(),
-          CommonPosterShareBundle(
+          const SizedBox10(),
+          const CommonPosterShareBundle(
             title: 'My List',
             image:
                 'https://i.ebayimg.com/images/g/z68AAOSw5A1iSlxm/s-l1200.webp',

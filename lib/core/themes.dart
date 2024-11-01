@@ -7,11 +7,22 @@ class MyTextTheme {
     fontSize: 18,
     fontFamily: "Netflix_Sans",
   );
+  static const lightSmallWhiteFont = TextStyle(
+    color: MyColors.white,
+    fontSize: 14,
+    overflow: TextOverflow.ellipsis,
+    fontFamily: "Netflix_Sans",
+  );
   static const lightSmallGreyFont = TextStyle(
     color: MyColors.lightGrey,
     fontSize: 16,
-    overflow: TextOverflow.ellipsis,
+    // overflow: TextOverflow.ellipsis,
     fontFamily: "Netflix_Sans",
+  );
+  static const lightSmallSmallWhiteFont = TextStyle(
+    color: MyColors.lightGrey,
+    fontSize: 12,
+    overflow: TextOverflow.ellipsis,
   );
   static const lightSmallSmallGreyFont = TextStyle(
     color: MyColors.lightGrey,
@@ -19,6 +30,7 @@ class MyTextTheme {
     overflow: TextOverflow.ellipsis,
     fontFamily: "Netflix_Sans",
   );
+
   static TextStyle buttonThickFontFun([Color color = MyColors.black]) =>
       TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 17);
 
@@ -39,4 +51,3 @@ class MyTextTheme {
 
 BorderRadius circleBorder10() => BorderRadius.circular(10);
 BorderRadius circleBorder5() => BorderRadius.circular(5);
-

@@ -18,7 +18,7 @@ class CommonPoster extends StatelessWidget {
       decoration: BoxDecoration(
         color: MyColors.lightBlack,
         borderRadius: circleBorder10(),
-        border: Border.all(),
+        
         image: DecorationImage(
           image: CachedNetworkImageProvider(
             image,
