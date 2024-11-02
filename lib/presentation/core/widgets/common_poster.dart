@@ -7,8 +7,10 @@ class CommonPoster extends StatelessWidget {
   const CommonPoster({
     super.key,
     required this.image,
+    this.isBackgroundImage = true,
   });
   final String image;
+  final bool isBackgroundImage;
 
   @override
   Widget build(BuildContext context) {
@@ -18,22 +20,27 @@ class CommonPoster extends StatelessWidget {
       decoration: BoxDecoration(
         color: MyColors.lightBlack,
         borderRadius: circleBorder10(),
-        
-        image: DecorationImage(
-          image: CachedNetworkImageProvider(
-            image,
-          ),
-          fit: BoxFit.fitWidth,
-        ),
+        image: (isBackgroundImage == false)
+            ? null
+            : DecorationImage(
+                image: CachedNetworkImageProvider(
+                  image,
+                ),
+                fit: BoxFit.fitWidth,
+              ),
       ),
-      // child: ClipRRect(
-      //   borderRadius: circleBorder10(),
-      //   child: CachedNetworkImage(
-      //     imageUrl: image,
-      //     placeholder: (context, url) => const Center(child:  Text('Loading...')),
-      //     errorWidget: (context, url, error) => Center(child: Text(error.toString())),
-      //   ),
-      // ),
+      child: (isBackgroundImage == true)
+          ? null
+          : ClipRRect(
+              borderRadius: circleBorder10(),
+              child: CachedNetworkImage(
+                imageUrl: image,
+                placeholder: (context, url) =>
+                    const Center(child: Text('Loading...')),
+                errorWidget: (context, url, error) =>
+                    Center(child: Text(error.toString())),
+              ),
+            ),
     );
   }
 }

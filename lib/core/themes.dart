@@ -31,8 +31,11 @@ class MyTextTheme {
     fontFamily: "Netflix_Sans",
   );
 
-  static TextStyle buttonThickFontFun([Color color = MyColors.black]) =>
-      TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 17);
+  static TextStyle buttonThickFontFun(
+          {Color color = MyColors.black,
+          double size = 17,
+          FontWeight weight = FontWeight.bold}) =>
+      TextStyle(color: color, fontWeight: weight, fontSize: size);
 
   static const posterTitleFont = TextStyle(
     fontFamily: "Netflix_Sans",

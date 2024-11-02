@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/themes.dart';
-import 'package:netflix/presentation/core/widgets/common_poster.dart';
+import 'package:netflix/presentation/core/widgets/custom_sized_box.dart';
+import 'package:netflix/presentation/downloads/widgets/button_for_download_page.dart';
+import 'package:netflix/presentation/downloads/widgets/download_page_poster.dart';
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart';
 
 class ScreenDownloads extends StatelessWidget {
@@ -19,8 +21,19 @@ class ScreenDownloads extends StatelessWidget {
         padding: const EdgeInsets.only(left: 5, right: 5),
         child: ListView(
           children: [
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: Text(
+                'Smart Downloads',
+                style: MyTextTheme.buttonThickFontFun(
+                  color: MyColors.white,
+                  size: 15,
+                  weight: FontWeight.w500,
+                ),
+              ),
+            ),
             const SizedBox(
-              height: 40,
+              height: 20,
             ),
             const Text(
               'Turn on Downloads for You',
@@ -36,26 +49,20 @@ class ScreenDownloads extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            CircleAvatar(
-              backgroundColor: MyColors.blackHalf,
-              radius: 100,
-              child: Stack(
-                children: [
-                  CommonPoster(
-                    image:
-                        'https://img.freepik.com/premium-photo/movie-poster-design-template_841014-30766.jpg?w=360',
-                  ),
-                  Transform(
-                    transform: Matrix4.rotationZ(.61),
-                    child: CommonPoster(
-                      image:
-                          'https://img.freepik.com/premium-photo/movie-poster-design-template_841014-30766.jpg?w=360',
-                    ),
-                  ),
-
-                ],
-              ),
-            )
+            const DownloadPagePoster(),
+            const SizedBox10(
+              height: 20,
+            ),
+            const ButtonForDownloadPage(
+              padding: 12,
+              bgColor: Colors.blue,
+              text: 'Set Up',
+            ),
+            const ButtonForDownloadPage(
+              padding: 50,
+              bgColor: MyColors.blackHalf,
+              text: 'Find More to Download',
+            ),
           ],
         ),
       ),

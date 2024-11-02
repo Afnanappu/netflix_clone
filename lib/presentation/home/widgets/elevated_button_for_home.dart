@@ -22,7 +22,7 @@ class ElevatedButtonForHome extends StatelessWidget {
       onPressed: () {},
       label: Text(
         text,
-        style: MyTextTheme.buttonThickFontFun(color),
+        style: MyTextTheme.buttonThickFontFun(color: color),
       ),
       icon: icon,
       style: ElevatedButton.styleFrom(
