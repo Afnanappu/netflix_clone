@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/themes.dart';
-import 'package:netflix/presentation/core/widgets/custom_sized_box.dart';
+import 'package:netflix/presentation/core/widgets/custom_small_widgets.dart';
 import 'package:netflix/presentation/downloads/widgets/button_for_download_page.dart';
 import 'package:netflix/presentation/downloads/widgets/download_page_poster.dart';
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart';

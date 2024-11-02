@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/themes.dart';
+import 'package:netflix/presentation/core/widgets/custom_small_widgets.dart';
 
 class ElevatedButtonForHome extends StatelessWidget {
   const ElevatedButtonForHome({

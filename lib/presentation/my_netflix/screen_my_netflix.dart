@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/presentation/core/widgets/custom_sized_box.dart';
+import 'package:netflix/presentation/core/widgets/custom_small_widgets.dart';
 import 'package:netflix/presentation/downloads/screen_downloads.dart';
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart';
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_profile.dart';

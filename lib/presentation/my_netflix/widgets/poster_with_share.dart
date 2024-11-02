@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
-import 'package:netflix/core/themes.dart';
+import 'package:netflix/presentation/core/widgets/custom_small_widgets.dart';
 import 'package:netflix/presentation/home/widgets/elevated_button_for_home.dart';
 import 'package:netflix/presentation/new_and_hot/widgets/custom_cache_network_image.dart';
 

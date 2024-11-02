@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
-import 'package:netflix/core/themes.dart';
+import 'package:netflix/presentation/core/widgets/custom_small_widgets.dart';
 
 class CommonPoster extends StatelessWidget {
   const CommonPoster({

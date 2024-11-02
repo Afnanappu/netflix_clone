@@ -52,5 +52,3 @@ class MyTextTheme {
   );
 }
 
-BorderRadius circleBorder10() => BorderRadius.circular(10);
-BorderRadius circleBorder5() => BorderRadius.circular(5);

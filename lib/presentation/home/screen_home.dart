@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/presentation/core/widgets/common_poster_bundle.dart';
 import 'package:netflix/presentation/core/widgets/top_ten_poster_bundle.dart';
+import 'package:netflix/presentation/downloads/screen_downloads.dart';
 import 'package:netflix/presentation/home/widgets/home_main_poster.dart';
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart';
+import 'package:netflix/presentation/search/screen_search.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
@@ -14,7 +16,13 @@ class ScreenHome extends StatelessWidget {
         appBar: MyNetflixAppBar(
           leading: Image.asset('assets/logo/Netflix_logo.png'),
           firstIcon: Icons.download_sharp,
+          firstOnPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const ScreenDownloads(),
+          )),
           secondIcon: Icons.search,
+          secondOnPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const ScreenSearch(),
+          )),
         ),
         body: ListView(
           children: const [
