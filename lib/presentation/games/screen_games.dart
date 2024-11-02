@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/presentation/games/widgets/common_gaming_poster_bundle.dart';
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart';
+import 'package:netflix/presentation/search/screen_search.dart';
 
 class ScreenGames extends StatelessWidget {
   const ScreenGames({super.key});
@@ -8,9 +9,12 @@ class ScreenGames extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const MyNetflixAppBar(
+        appBar:  MyNetflixAppBar(
           title: 'Games',
           firstIcon: Icons.search,
+          firstOnPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const ScreenSearch(),
+          )),
         ),
         body: ListView(
           children: const [

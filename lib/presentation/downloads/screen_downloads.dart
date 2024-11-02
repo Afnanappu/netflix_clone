@@ -5,6 +5,7 @@ import 'package:netflix/presentation/core/widgets/custom_small_widgets.dart';
 import 'package:netflix/presentation/downloads/widgets/button_for_download_page.dart';
 import 'package:netflix/presentation/downloads/widgets/download_page_poster.dart';
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart';
+import 'package:netflix/presentation/search/screen_search.dart';
 
 class ScreenDownloads extends StatelessWidget {
   const ScreenDownloads({super.key});
@@ -12,8 +13,11 @@ class ScreenDownloads extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyNetflixAppBar(
+      appBar:  MyNetflixAppBar(
         firstIcon: Icons.search,
+        firstOnPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const ScreenSearch(),
+          )),
         secondIcon: Icons.menu_outlined,
         title: 'Downloads',
       ),

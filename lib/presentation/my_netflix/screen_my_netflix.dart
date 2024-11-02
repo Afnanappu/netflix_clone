@@ -5,6 +5,7 @@ import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart'
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_profile.dart';
 import 'package:netflix/presentation/my_netflix/widgets/navigation_tile.dart';
 import 'package:netflix/presentation/my_netflix/widgets/poster_share_bundle.dart';
+import 'package:netflix/presentation/search/screen_search.dart';
 
 class ScreenMyNetflix extends StatelessWidget {
   const ScreenMyNetflix({super.key});
@@ -12,9 +13,12 @@ class ScreenMyNetflix extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyNetflixAppBar(
+      appBar:  MyNetflixAppBar(
         title: 'My Netflix',
         firstIcon: Icons.search,
+        firstOnPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const ScreenSearch(),
+          )),
         secondIcon: Icons.menu_rounded,
       ),
       body: ListView(

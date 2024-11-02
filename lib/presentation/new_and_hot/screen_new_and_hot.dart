@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart';
 import 'package:netflix/presentation/new_and_hot/widgets/new_and_hot_poster.dart';
+import 'package:netflix/presentation/search/screen_search.dart';
 
 class ScreenNewsAndHot extends StatelessWidget {
   const ScreenNewsAndHot({super.key});
@@ -12,10 +13,13 @@ class ScreenNewsAndHot extends StatelessWidget {
       length: 2,
       initialIndex: 0,
       child: Scaffold(
-        appBar: const MyNetflixAppBar(
+        appBar: MyNetflixAppBar(
           title: 'New & Hot',
           firstIcon: Icons.file_download,
           secondIcon: Icons.search,
+          firstOnPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const ScreenSearch(),
+          )),
         ),
         body: Column(
           children: [
