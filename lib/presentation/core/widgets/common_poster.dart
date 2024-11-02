@@ -24,7 +24,7 @@ class CommonPoster extends StatelessWidget {
             ? null
             : DecorationImage(
                 image: CachedNetworkImageProvider(
-                  image,
+                  "https://image.tmdb.org/t/p/w500$image",
                 ),
                 fit: BoxFit.fitWidth,
               ),
@@ -34,7 +34,7 @@ class CommonPoster extends StatelessWidget {
           : ClipRRect(
               borderRadius: circleBorder10(),
               child: CachedNetworkImage(
-                imageUrl: image,
+                imageUrl: "https://image.tmdb.org/t/p/w500$image",
                 placeholder: (context, url) =>
                     const Center(child: Text('Loading...')),
                 errorWidget: (context, url, error) =>

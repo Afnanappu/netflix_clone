@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:netflix/application/home_page/home_page_Providers.dart';
 import 'package:netflix/presentation/core/widgets/common_poster_bundle.dart';
 import 'package:netflix/presentation/core/widgets/top_ten_poster_bundle.dart';
 import 'package:netflix/presentation/downloads/screen_downloads.dart';
@@ -6,11 +8,12 @@ import 'package:netflix/presentation/home/widgets/home_main_poster.dart';
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart';
 import 'package:netflix/presentation/search/screen_search.dart';
 
-class ScreenHome extends StatelessWidget {
+class ScreenHome extends ConsumerWidget {
   const ScreenHome({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: MyNetflixAppBar(

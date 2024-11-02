@@ -20,7 +20,7 @@ class BottomNavigationMain extends ConsumerWidget {
         const BottomNavigationBarItem(
             icon: Icon(Icons.gamepad_outlined), label: 'Games'),
         const BottomNavigationBarItem(
-            icon: Icon(Icons.video_collection_outlined), label: 'News & Hot'),
+            icon: Icon(Icons.video_collection_outlined), label: 'New & Hot'),
         BottomNavigationBarItem(
             icon: SizedBox(
                 width: 25,

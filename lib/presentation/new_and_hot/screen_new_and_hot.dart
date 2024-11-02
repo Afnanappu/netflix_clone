@@ -4,8 +4,8 @@ import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart'
 import 'package:netflix/presentation/new_and_hot/widgets/new_and_hot_poster.dart';
 import 'package:netflix/presentation/search/screen_search.dart';
 
-class ScreenNewsAndHot extends StatelessWidget {
-  const ScreenNewsAndHot({super.key});
+class ScreenNewAndHot extends StatelessWidget {
+  const ScreenNewAndHot({super.key});
 
   @override
   Widget build(BuildContext context) {

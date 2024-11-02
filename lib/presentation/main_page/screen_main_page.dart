@@ -22,7 +22,7 @@ class ScreenMainPage extends ConsumerWidget {
         children: const [
           ScreenHome(),
           ScreenGames(),
-          ScreenNewsAndHot(),
+          ScreenNewAndHot(),
           ScreenMyNetflix(),
         ],
       ),

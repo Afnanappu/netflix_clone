@@ -13,8 +13,8 @@ class ScreenSearch extends ConsumerWidget {
     final isListUi = ref.watch(searchUiProvider);
     return SafeArea(
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(60),
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(60),
           child: SearchBarForSearchScreen(),
         ),
         body: isListUi != true
