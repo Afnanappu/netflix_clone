@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:netflix/application/home_page/home_page_Providers.dart';
 import 'package:netflix/core/themes.dart';
 import 'package:netflix/presentation/core/widgets/common_poster.dart';
 
-class CommonPosterBundle extends ConsumerWidget {
+class CommonPosterBundle extends StatelessWidget {
   const CommonPosterBundle({
     super.key,
     required this.title,
     // required this.list;
-    required this.image,
+    required this.imageList,
   });
   final String title;
-  final String image;
+
+  //I make this dynamic because of the conflict between Result classes.
+  final List<dynamic> imageList;
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final result = ref.watch(nowPlayingMovieProvider);
+  Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,11 +29,11 @@ class CommonPosterBundle extends ConsumerWidget {
           height: 200,
           child: ListView.builder(
             shrinkWrap: true,
-            itemCount: result.length > 10 ? 10 : result.length,
+            itemCount:  imageList.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return CommonPoster(
-                image: result[index].posterPath,
+                image: imageList[index].posterPath,
               );
             },
           ),

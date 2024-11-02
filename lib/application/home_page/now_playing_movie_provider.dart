@@ -7,7 +7,7 @@ class NowPlayingMovieNotifier extends StateNotifier<List<Result>> {
   NowPlayingMovieNotifier() : super([]) {
     fetchData();
   }
-
+  
   Future<void> fetchData() async {
     try {
       final movieObj = NowPlayingMovieApiServices();

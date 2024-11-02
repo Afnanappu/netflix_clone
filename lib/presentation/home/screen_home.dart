@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:netflix/application/home_page/home_page_Providers.dart';
+import 'package:netflix/application/home_page/now_playing_movie_provider.dart';
+import 'package:netflix/application/home_page/popular_movie_provider.dart';
 import 'package:netflix/presentation/core/widgets/common_poster_bundle.dart';
 import 'package:netflix/presentation/core/widgets/top_ten_poster_bundle.dart';
 import 'package:netflix/presentation/downloads/screen_downloads.dart';
@@ -13,7 +14,8 @@ class ScreenHome extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    
+    final nowPlaying = ref.watch(nowPlayingMovieProvider);
+    final popularMovie = ref.watch(popularMovieProvider);
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: MyNetflixAppBar(
@@ -28,7 +30,7 @@ class ScreenHome extends ConsumerWidget {
           )),
         ),
         body: ListView(
-          children: const [
+          children: [
             //main poster
             HomeMainPoster(
               image: 'https://m.media-amazon.com/images/I/7197L2XzWxL.jpg',
@@ -36,13 +38,12 @@ class ScreenHome extends ConsumerWidget {
 
             //poster bundles
             CommonPosterBundle(
-              title: 'Heartfelt Movies',
-              image: "https://m.media-amazon.com/images/I/A1jNECCCyUL.jpg",
+              title: 'Popular Movies',
+              imageList: popularMovie,
             ),
             CommonPosterBundle(
-              title: "We Think You'll Love This",
-              image:
-                  'https://img.freepik.com/premium-photo/movie-poster-design_841014-8784.jpg?w=360',
+              title: "Now Playing",
+              imageList: nowPlaying,
             ),
 
             //top ten movie bundle
@@ -54,8 +55,7 @@ class ScreenHome extends ConsumerWidget {
 
             CommonPosterBundle(
               title: 'Crowd Pleasure',
-              image:
-                  'https://www.universalpictures.com.au/tl_files/content/movies/wild_robot/posters/01.jpg',
+              imageList: nowPlaying,
             ),
           ],
         ));

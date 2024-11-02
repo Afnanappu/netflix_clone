@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
+import 'package:netflix/core/tmdb.dart';
 import 'package:netflix/presentation/core/widgets/custom_small_widgets.dart';
 
 class CommonPoster extends StatelessWidget {
@@ -24,7 +25,7 @@ class CommonPoster extends StatelessWidget {
             ? null
             : DecorationImage(
                 image: CachedNetworkImageProvider(
-                  "https://image.tmdb.org/t/p/w500$image",
+                  "$base_image_url$image",
                 ),
                 fit: BoxFit.fitWidth,
               ),
@@ -34,7 +35,7 @@ class CommonPoster extends StatelessWidget {
           : ClipRRect(
               borderRadius: circleBorder10(),
               child: CachedNetworkImage(
-                imageUrl: "https://image.tmdb.org/t/p/w500$image",
+                imageUrl: "$base_image_url$image",
                 placeholder: (context, url) =>
                     const Center(child: Text('Loading...')),
                 errorWidget: (context, url, error) =>
