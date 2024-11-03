@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/themes.dart';
+import 'package:netflix/infrastructure/model/common_movie_model.dart';
 import 'package:netflix/presentation/core/widgets/common_poster.dart';
 
 class CommonPosterBundle extends StatelessWidget {
@@ -12,7 +13,7 @@ class CommonPosterBundle extends StatelessWidget {
   final String title;
 
   //I make this dynamic because of the conflict between Result classes.
-  final List<dynamic> imageList;
+  final List<Result> imageList;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,7 +30,7 @@ class CommonPosterBundle extends StatelessWidget {
           height: 200,
           child: ListView.builder(
             shrinkWrap: true,
-            itemCount:  imageList.length,
+            itemCount: imageList.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return CommonPoster(
