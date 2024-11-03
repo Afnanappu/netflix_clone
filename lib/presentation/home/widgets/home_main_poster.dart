@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
+import 'package:netflix/core/tmdb.dart';
 import 'package:netflix/presentation/core/widgets/custom_small_widgets.dart';
 import 'package:netflix/presentation/home/widgets/elevated_button_for_home.dart';
 
@@ -26,7 +27,7 @@ class HomeMainPoster extends StatelessWidget {
             border: Border.all(color: MyColors.lightGrey),
             image: DecorationImage(
               image: CachedNetworkImageProvider(
-                image,
+                "$base_image_url$image",
               ),
               fit: BoxFit.fitWidth,
             ),

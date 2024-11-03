@@ -37,7 +37,7 @@ class ScreenHome extends ConsumerWidget {
           children: [
             //main poster
             HomeMainPoster(
-              image: 'https://m.media-amazon.com/images/I/7197L2XzWxL.jpg',
+              image: topRatedMovie[0].posterPath,
             ),
 
             //poster bundles
@@ -57,7 +57,7 @@ class ScreenHome extends ConsumerWidget {
             ),
 
             CommonPosterBundle(
-              title: 'Crowd Pleasure',
+              title: 'Upcoming Movies',
               imageList: upcomingMovie,
             ),
           ],
