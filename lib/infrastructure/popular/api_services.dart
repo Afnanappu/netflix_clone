@@ -13,7 +13,7 @@ class PopularMovieApiServices {
       final response = await _dio.get(_url);
       if (response.statusCode == 200) {
         final popularMovies = PopularMovieModel.fromJson(response.data);
-        log(popularMovies.totalPages.toString());
+       log('PopularMovie are fetched');
         return popularMovies;
       }
       throw Exception('fetchPopularMovieFromApiException');

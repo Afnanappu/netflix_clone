@@ -5,19 +5,19 @@ import 'package:netflix/infrastructure/popular/model/popular_movie_model.dart';
 
 class PopularMovieNotifier extends StateNotifier<List<Result>> {
   PopularMovieNotifier() : super([]) {
-    fetchData();
+    fetchDataFromApi();
   }
 
-  void fetchData() async {
+  void fetchDataFromApi() async {
     try {
       final movieObj = PopularMovieApiServices();
       final obj = await movieObj.fetchPopularMovieFromApi();
-      final list = obj.results;
-      log(list[0].toString());
-      state = list;
+
+      state = obj.results;
+      log('fetchDataFromApi -> fetchPopularMovieFromApi: Success');
     } catch (e) {
-      log(Exception('PopularMovieNotifier -> fetchData $e').toString());
       state = [];
+      log('fetchDataFromApi -> fetchPopularMovieFromApi: failed, $e');
     }
   }
 }

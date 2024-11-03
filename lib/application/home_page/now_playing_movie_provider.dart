@@ -7,16 +7,16 @@ class NowPlayingMovieNotifier extends StateNotifier<List<Result>> {
   NowPlayingMovieNotifier() : super([]) {
     fetchData();
   }
-  
+
   Future<void> fetchData() async {
     try {
       final movieObj = NowPlayingMovieApiServices();
       final data = await movieObj.fetchNowPlayingMovieFromApi();
       state = data.results;
-      log(state.toString());
+      log('fetchDataFromApi -> fetchNowPlayingMovieFromApi: Success');
     } catch (e) {
-      log('Exception caused by NowPlayingMovieNotifier: $e');
       state = [];
+      log('fetchDataFromApi -> fetchNowPlayingMovieFromApi: failed, $e');
     }
   }
 }

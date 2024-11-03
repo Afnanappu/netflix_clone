@@ -14,7 +14,6 @@ class NowPlayingMovieApiServices {
       if (response.statusCode == 200) {
         final nowPlaying = NowPlayingMovieModel.fromJson(response.data);
         log('Now playing movies are fetched');
-        log(nowPlaying.results[0].toString());
         return nowPlaying;
       }
       throw Exception('ResponseWasNotSuccessful');

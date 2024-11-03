@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
+import 'package:netflix/core/tmdb.dart';
 import 'package:netflix/presentation/core/widgets/custom_small_widgets.dart';
 import 'package:stroke_text/stroke_text.dart';
 
@@ -33,7 +34,7 @@ class TopTenMoviePoster extends StatelessWidget {
           border: Border.all(),
           image: DecorationImage(
             image: CachedNetworkImageProvider(
-              image,
+              "$base_image_url$image",
             ),
             fit: BoxFit.fitWidth,
           ),

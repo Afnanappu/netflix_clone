@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/themes.dart';
+import 'package:netflix/infrastructure/top_rated/model/top_rated_movie_model.dart';
 import 'package:netflix/presentation/core/widgets/top_ten_movies_poster.dart';
 
 class TopTenPosterBundle extends StatelessWidget {
@@ -7,10 +8,10 @@ class TopTenPosterBundle extends StatelessWidget {
     super.key,
     required this.title,
     // required this.list;
-    required this.image,
+    required this.imageList,
   });
   final String title;
-  final String image;
+  final List<Result> imageList;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,10 +28,11 @@ class TopTenPosterBundle extends StatelessWidget {
           height: 200,
           child: ListView.builder(
             shrinkWrap: true,
-            itemCount: 10,
+            itemCount: imageList.length > 10 ? 10 : imageList.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return TopTenMoviePoster(image: image, index: index+1);
+              return TopTenMoviePoster(
+                  image: imageList[index].posterPath, index: index + 1);
             },
           ),
         )
