@@ -10,6 +10,7 @@ class MyTextTheme {
   static const lightSmallWhiteFont = TextStyle(
     color: MyColors.white,
     fontSize: 14,
+    
     overflow: TextOverflow.ellipsis,
     fontFamily: "Netflix_Sans",
   );

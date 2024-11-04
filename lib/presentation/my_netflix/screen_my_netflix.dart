@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:netflix/application/home_page/now_playing_movie_provider.dart';
+import 'package:netflix/application/home_page/top_rated_movie_provider.dart';
 import 'package:netflix/application/home_page/upcoming_movie_provider.dart';
 import 'package:netflix/presentation/core/widgets/custom_small_widgets.dart';
 import 'package:netflix/presentation/downloads/screen_downloads.dart';
@@ -17,6 +18,7 @@ class ScreenMyNetflix extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final nowPlayingMovie = ref.watch(nowPlayingMovieProvider);
     final upcomingMovie = ref.watch(upcomingMovieProvider);
+    final topRatedMovie = ref.watch(topRatedMovieProvider);
     return Scaffold(
       appBar: MyNetflixAppBar(
         title: 'My Netflix',
@@ -47,7 +49,7 @@ class ScreenMyNetflix extends ConsumerWidget {
             icColor: Colors.blue,
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const ScreenDownloads(),
+                builder: (context) =>  ScreenDownloads(imageList: topRatedMovie,),
               ),
             ),
           ),
@@ -56,10 +58,10 @@ class ScreenMyNetflix extends ConsumerWidget {
           ),
           CommonPosterShareBundle(
             title: 'TV Shows & Movie You Liked',
-            imageList: nowPlayingMovie,
+            imageList: topRatedMovie,
           ),
           const SizedBox10(),
-          CommonPosterShareBundle(
+          if(upcomingMovie.isNotEmpty)CommonPosterShareBundle(
             title: 'My List',
             imageList: upcomingMovie,
           )

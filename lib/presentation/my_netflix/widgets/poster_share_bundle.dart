@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/themes.dart';
-import 'package:netflix/infrastructure/now_playing/model/now_playing_movie_model.dart';
 
 
 import 'package:netflix/presentation/my_netflix/widgets/poster_with_share.dart';
@@ -29,7 +28,7 @@ class CommonPosterShareBundle extends StatelessWidget {
           height: 235,
           child: ListView.builder(
             shrinkWrap: true,
-            itemCount: 10,
+            itemCount: imageList.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return CommonPosterWithShare(

@@ -8,7 +8,8 @@ import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart'
 import 'package:netflix/presentation/search/screen_search.dart';
 
 class ScreenDownloads extends StatelessWidget {
-  const ScreenDownloads({super.key});
+  const ScreenDownloads({super.key, required this.imageList});
+  final List<dynamic> imageList ;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,7 @@ class ScreenDownloads extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const DownloadPagePoster(),
+             DownloadPagePoster(image: imageList,),
             const SizedBox10(
               height: 20,
             ),

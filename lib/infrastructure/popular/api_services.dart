@@ -12,8 +12,10 @@ class PopularMovieApiServices {
   Future<PopularMovieModel> fetchPopularMovieFromApi() async {
     try {
       final response = await http.get(Uri.parse(_url));
+      // final response = await _dio.get(_url);
       if (response.statusCode == 200) {
         final popularMovies = PopularMovieModel.fromRawJson(response.body);
+        // final popularMovies = PopularMovieModel.fromJson(response.data);
         log('PopularMovie are fetched');
         return popularMovies;
       }

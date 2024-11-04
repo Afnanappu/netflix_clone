@@ -26,7 +26,9 @@ class ScreenHome extends ConsumerWidget {
           leading: Image.asset('assets/logo/Netflix_logo.png'),
           firstIcon: Icons.download_sharp,
           firstOnPressed: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const ScreenDownloads(),
+            builder: (context) => ScreenDownloads(
+              imageList: topRatedMovie,
+            ),
           )),
           secondIcon: Icons.search,
           secondOnPressed: () => Navigator.of(context).push(MaterialPageRoute(
@@ -42,30 +44,35 @@ class ScreenHome extends ConsumerWidget {
           child: ListView(
             children: [
               //main poster
-              HomeMainPoster(
-                image: topRatedMovie[0].posterPath,
+              const HomeMainPoster(
+                image:
+                    "https://lumiere-a.akamaihd.net/v1/images/p_moana2_payoff_5787a994.jpeg",
               ),
 
               //poster bundles
-              CommonPosterBundle(
-                title: 'Popular Movies',
-                imageList: popularMovie,
-              ),
-              CommonPosterBundle(
-                title: "Now Playing",
-                imageList: nowPlaying,
-              ),
+              if (popularMovie.isNotEmpty)
+                CommonPosterBundle(
+                  title: 'Popular Movies',
+                  imageList: popularMovie,
+                ),
+              if (nowPlaying.isNotEmpty)
+                CommonPosterBundle(
+                  title: "Now Playing",
+                  imageList: nowPlaying,
+                ),
 
               //top ten movie bundle
-              TopTenPosterBundle(
-                title: 'Top 10 Movies in India Today',
-                imageList: topRatedMovie,
-              ),
+              if (topRatedMovie.isNotEmpty)
+                TopTenPosterBundle(
+                  title: 'Top 10 Movies in India Today',
+                  imageList: topRatedMovie,
+                ),
 
-              CommonPosterBundle(
-                title: 'Upcoming Movies',
-                imageList: upcomingMovie,
-              ),
+              if (upcomingMovie.isNotEmpty)
+                CommonPosterBundle(
+                  title: 'Upcoming Movies',
+                  imageList: upcomingMovie,
+                ),
             ],
           ),
         ));

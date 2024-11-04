@@ -13,35 +13,31 @@ class PosterVideoTypeTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 95,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          SizedBox(
-            width: 120,
-            child: CustomNetworkImage(
-              image: image,
-              fit: BoxFit.fitWidth,
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                title,
-                style: MyTextTheme.lightSmallWhiteFont,
+    return Padding(
+      padding: const EdgeInsets.only(top: 5, bottom: 5),
+      child: SizedBox(
+        height: 95,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SizedBox(
+              width: 120,
+              child: CustomNetworkImage(
+                image: image,
+                fit: BoxFit.fitWidth,
               ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.play_circle_outline_rounded,
-                  size: 38,
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Text(
+                  title,
+                  style: MyTextTheme.lightSmallWhiteFont,
                 ),
               ),
-            ],
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

@@ -17,8 +17,10 @@ class SearchMovieApiServices {
         // if(response.data['results'] == null || response.data['results'].isEmpty){
 
         // }
-        return response.data['results'];
+        final obj = SearchMovieModel.fromJson(response.data);
+        return obj.results;
       }
+      log('Returning empty list for search');
       return [];
     } on Exception catch (e) {
       log("searchMovieFromApi: $e");

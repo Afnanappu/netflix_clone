@@ -10,7 +10,7 @@ class CommonPoster extends StatelessWidget {
     required this.image,
     this.isBackgroundImage = true,
   });
-  final String image;
+  final String? image;
   final bool isBackgroundImage;
 
   @override
@@ -30,7 +30,7 @@ class CommonPoster extends StatelessWidget {
                 fit: BoxFit.fitWidth,
               ),
       ),
-      child: (isBackgroundImage == true)
+      child: (isBackgroundImage == true || image == null)
           ? null
           : ClipRRect(
               borderRadius: circleBorder10(),
@@ -39,7 +39,7 @@ class CommonPoster extends StatelessWidget {
                 placeholder: (context, url) =>
                     const Center(child: Text('Loading...')),
                 errorWidget: (context, url, error) =>
-                    Center(child: Text(error.toString())),
+                    const Center(child: Text("Image can't be loaded")),
               ),
             ),
     );

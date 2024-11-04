@@ -12,7 +12,7 @@ class MovieGridViewBundle extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final movies = ref.watch(searchMovieProvider);
-    ref.watch(searchProvider);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -23,23 +23,30 @@ class MovieGridViewBundle extends ConsumerWidget {
             style: MyTextTheme.posterTitleFont,
           ),
         ),
-        Expanded(
-          child: GridView.builder(
-            itemCount: movies.length,
-            itemBuilder: (context, index) {
-              return CommonPoster(
-                isBackgroundImage: false,
-                image: movies[index].posterPath!,
-              );
-            },
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 120,
-              childAspectRatio: 9 / 20,
-              mainAxisSpacing: 0,
-              mainAxisExtent: 190,
-            ),
-          ),
-        ),
+        movies.isNotEmpty
+            ? Expanded(
+                child: GridView.builder(
+                  itemCount: movies.length,
+                  itemBuilder: (context, index) {
+                    return CommonPoster(
+                      isBackgroundImage: false,
+                      image: movies[index].posterPath,
+                    );
+                  },
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 120,
+                    childAspectRatio: 9 / 20,
+                    mainAxisSpacing: 0,
+                    mainAxisExtent: 190,
+                  ),
+                ),
+              )
+            : const SizedBox(
+              height: 300,
+              child: Center(
+                  child: Text('No result found'),
+                ),
+            )
       ],
     );
   }

@@ -33,9 +33,13 @@ class CommonGamePoster extends StatelessWidget {
               image: DecorationImage(
                   image: CachedNetworkImageProvider(image), fit: BoxFit.cover)),
         ),
-        Text(
-          title,
-          style: MyTextTheme.lightSmallWhiteFont,
+        SizedBox(
+          width: 100,
+          child: Text(
+            title,
+            style: MyTextTheme.lightSmallWhiteFont,
+            
+          ),
         ),
         Text(
           subtitle,
