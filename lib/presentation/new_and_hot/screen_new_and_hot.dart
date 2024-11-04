@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:netflix/application/home_page/popular_movie_provider.dart';
+import 'package:netflix/application/home_page/upcoming_movie_provider.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/presentation/my_netflix/widgets/my_netflix_app_bar.dart';
 import 'package:netflix/presentation/new_and_hot/widgets/new_and_hot_poster.dart';
 import 'package:netflix/presentation/search/screen_search.dart';
 
-class ScreenNewAndHot extends StatelessWidget {
+class ScreenNewAndHot extends ConsumerWidget {
   const ScreenNewAndHot({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final popularMovies = ref.watch(popularMovieProvider);
+    final upcomingMovies = ref.watch(upcomingMovieProvider);
     return DefaultTabController(
       length: 2,
       initialIndex: 0,
@@ -29,7 +34,7 @@ class ScreenNewAndHot extends StatelessWidget {
               splashBorderRadius: BorderRadius.circular(25),
               tabAlignment: TabAlignment.start,
               indicatorWeight: 0,
-              labelColor: MyColors.black,
+              labelColor: const Color.fromRGBO(0, 0, 0, 1),
               labelStyle: const TextStyle(
                 fontFamily: "Netflix_Sans",
                 fontWeight: FontWeight.w700,
@@ -50,7 +55,7 @@ class ScreenNewAndHot extends StatelessWidget {
                 ),
                 Tab(
                   child: Text(
-                    '🍿 Coming Soon',
+                    '🍿 Everyones Watching',
                   ),
                 )
               ],
@@ -58,20 +63,18 @@ class ScreenNewAndHot extends StatelessWidget {
             Expanded(
               child: TabBarView(
                 children: [
-                  ListView(
-                    children: const [
-                      NewsAndHotPoster(),
-                      NewsAndHotPoster(),
-                      NewsAndHotPoster()
-                    ],
+                  ListView.builder(
+                    itemCount: upcomingMovies.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return NewAndHotPoster(movie: upcomingMovies[index]);
+                    },
                   ),
-                  ListView(
-                    children: const [
-                      NewsAndHotPoster(),
-                      NewsAndHotPoster(),
-                      NewsAndHotPoster()
-                    ],
-                  ),
+                  ListView.builder(
+                    itemCount: popularMovies.length,
+                    itemBuilder: (context, index) {
+                      return NewAndHotPoster(movie: popularMovies[index]);
+                    },
+                  )
                 ],
               ),
             )

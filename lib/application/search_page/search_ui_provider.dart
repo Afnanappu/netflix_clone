@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final searchUiProvider = StateProvider.autoDispose(
@@ -8,6 +8,6 @@ final searchUiProvider = StateProvider.autoDispose(
   },
 );
 
-final searchControllerProvider = StateProvider(
-  (_) => TextEditingController(),
-);
+// final searchControllerProvider = StateProvider(
+//   (_) => TextEditingController(),
+// );

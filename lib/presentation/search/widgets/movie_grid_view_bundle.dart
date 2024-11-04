@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:netflix/application/search_page/search_movie_provider.dart';
 import 'package:netflix/core/themes.dart';
 import 'package:netflix/presentation/core/widgets/common_poster.dart';
 
-class MovieGridViewBundle extends StatelessWidget {
+class MovieGridViewBundle extends ConsumerWidget {
   const MovieGridViewBundle({
     super.key,
-    required this.image,
   });
-  final String image;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final movies = ref.watch(searchMovieProvider);
+    ref.watch(searchProvider);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -23,11 +25,11 @@ class MovieGridViewBundle extends StatelessWidget {
         ),
         Expanded(
           child: GridView.builder(
-            itemCount: 10,
+            itemCount: movies.length,
             itemBuilder: (context, index) {
               return CommonPoster(
                 isBackgroundImage: false,
-                image: image,
+                image: movies[index].posterPath!,
               );
             },
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(

@@ -16,7 +16,7 @@ class MyTextTheme {
   static const lightSmallGreyFont = TextStyle(
     color: MyColors.lightGrey,
     fontSize: 16,
-    // overflow: TextOverflow.ellipsis,
+    overflow: TextOverflow.ellipsis,
     fontFamily: "Netflix_Sans",
   );
   static const lightSmallSmallWhiteFont = TextStyle(

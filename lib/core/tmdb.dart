@@ -8,3 +8,8 @@ const top_rated_movie_url =
     "https://api.themoviedb.org/3/movie/top_rated?api_key=";
 const upcoming_movie_url =
     "https://api.themoviedb.org/3/movie/upcoming?api_key=";
+const popular_tv_series = "https://api.themoviedb.org/3/tv/popular?api_key=";
+
+const search_base_url = "https://api.themoviedb.org/3/search/movie";
+
+

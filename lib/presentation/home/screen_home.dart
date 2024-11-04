@@ -33,34 +33,41 @@ class ScreenHome extends ConsumerWidget {
             builder: (context) => const ScreenSearch(),
           )),
         ),
-        body: ListView(
-          children: [
-            //main poster
-            HomeMainPoster(
-              image: topRatedMovie[0].posterPath,
-            ),
+        body: RefreshIndicator.adaptive(
+          onRefresh: () async {
+            ref.read(popularMovieProvider.notifier).fetchDataFromApi();
+            ref.read(nowPlayingMovieProvider.notifier).fetchData();
+            // ref.read(nowPlayingMovieProvider.notifier).;
+          },
+          child: ListView(
+            children: [
+              //main poster
+              HomeMainPoster(
+                image: topRatedMovie[0].posterPath,
+              ),
 
-            //poster bundles
-            CommonPosterBundle(
-              title: 'Popular Movies',
-              imageList: popularMovie,
-            ),
-            CommonPosterBundle(
-              title: "Now Playing",
-              imageList: nowPlaying,
-            ),
+              //poster bundles
+              CommonPosterBundle(
+                title: 'Popular Movies',
+                imageList: popularMovie,
+              ),
+              CommonPosterBundle(
+                title: "Now Playing",
+                imageList: nowPlaying,
+              ),
 
-            //top ten movie bundle
-            TopTenPosterBundle(
-              title: 'Top 10 Movies in India Today',
-              imageList: topRatedMovie,
-            ),
+              //top ten movie bundle
+              TopTenPosterBundle(
+                title: 'Top 10 Movies in India Today',
+                imageList: topRatedMovie,
+              ),
 
-            CommonPosterBundle(
-              title: 'Upcoming Movies',
-              imageList: upcomingMovie,
-            ),
-          ],
+              CommonPosterBundle(
+                title: 'Upcoming Movies',
+                imageList: upcomingMovie,
+              ),
+            ],
+          ),
         ));
   }
 }

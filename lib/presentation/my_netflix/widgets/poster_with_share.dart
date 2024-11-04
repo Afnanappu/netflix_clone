@@ -37,7 +37,7 @@ class CommonPosterWithShare extends StatelessWidget {
             child: CustomNetworkImage(image: image),
           ),
           const SizedBox(
-            height: 45,
+            height: 35,
             width: 120,
             child: ElevatedButtonForHome(
               text: 'Share',

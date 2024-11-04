@@ -11,7 +11,7 @@ class CommonPosterBundle extends StatelessWidget {
   });
   final String title;
 
-  //I make this dynamic because of the conflict between Result classes.
+  //makee this dynamic because of the conflict between Result classes.
   final List<dynamic> imageList;
   @override
   Widget build(BuildContext context) {

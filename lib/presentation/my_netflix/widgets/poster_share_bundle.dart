@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/themes.dart';
+import 'package:netflix/infrastructure/now_playing/model/now_playing_movie_model.dart';
 
 
 import 'package:netflix/presentation/my_netflix/widgets/poster_with_share.dart';
@@ -8,11 +9,10 @@ class CommonPosterShareBundle extends StatelessWidget {
   const CommonPosterShareBundle({
     super.key,
     required this.title,
-    // required this.list;
-    required this.image,
+    required this.imageList,
   });
   final String title;
-  final String image;
+  final List<dynamic> imageList;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,7 +33,7 @@ class CommonPosterShareBundle extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return CommonPosterWithShare(
-                image: image,
+                image: imageList[index].posterPath,
               );
             },
           ),

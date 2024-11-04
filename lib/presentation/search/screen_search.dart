@@ -13,18 +13,15 @@ class ScreenSearch extends ConsumerWidget {
     final isListUi = ref.watch(searchUiProvider);
     return SafeArea(
       child: Scaffold(
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(60),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(60),
           child: SearchBarForSearchScreen(),
         ),
         body: isListUi != true
             ? const MovieListViewBundle(
                 title: 'Recommended TV Shows & Movies',
               )
-            : const MovieGridViewBundle(
-                image:
-                    "https://posterhouse.org/wp-content/uploads/2021/05/moonlight_0.jpg",
-              ),
+            : const MovieGridViewBundle(),
       ),
     );
   }

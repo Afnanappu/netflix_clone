@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:netflix/application/home_page/popular_movie_provider.dart';
 import 'package:netflix/core/themes.dart';
 import 'package:netflix/presentation/search/widgets/poster_video_type_tile.dart';
 
-class MovieListViewBundle extends StatelessWidget {
+class MovieListViewBundle extends ConsumerWidget {
   const MovieListViewBundle({
     super.key,
     required this.title,
+    
   });
   final String title;
 
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+      final  movies = ref.watch(popularMovieProvider);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -23,12 +28,11 @@ class MovieListViewBundle extends StatelessWidget {
         ),
         Expanded(
           child: ListView.builder(
-            itemCount: 10,
+            itemCount: movies.length,
             itemBuilder: (context, index) {
-              return const PosterVideoTypeTile(
-                image:
-                    "https://rukminim2.flixcart.com/image/850/1000/kph8h3k0/poster/y/f/z/large-the-adventures-of-tintin-movie-poster-non12x18no1x0151-original-imag3pb3ypquwk3p.jpeg?q=90&crop=false",
-                title: 'The Adventures Of Tintin',
+              return  PosterVideoTypeTile(
+                image: movies[index].posterPath,
+                title: movies[index].title,
               );
             },
           ),

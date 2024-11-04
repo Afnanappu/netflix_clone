@@ -2,18 +2,18 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:netflix/application/search_page/search_movie_provider.dart';
 import 'package:netflix/application/search_page/search_ui_provider.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/presentation/core/widgets/custom_small_widgets.dart';
 
 class SearchBarForSearchScreen extends ConsumerWidget {
-  const SearchBarForSearchScreen({
+  SearchBarForSearchScreen({
     super.key,
   });
-
+  final searchController = TextEditingController();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final searchController = ref.watch(searchControllerProvider);
     return Row(
       children: [
         IconButton(
@@ -30,6 +30,7 @@ class SearchBarForSearchScreen extends ConsumerWidget {
             },
             controller: searchController,
             onChanged: (value) {
+              ref.read(searchMovieProvider.notifier).searchMovie(value);
               if (value.isEmpty) {
                 ref.read(searchUiProvider.notifier).state = false;
                 log('search set to false');
@@ -42,8 +43,7 @@ class SearchBarForSearchScreen extends ConsumerWidget {
               if (searchController.text.isNotEmpty)
                 IconButton(
                     onPressed: () {
-                      ref.read(searchControllerProvider.notifier).state.text =
-                          '';
+                      searchController.text = '';
                       ref.read(searchUiProvider.notifier).state = false;
                       log('search field is cleared');
                     },
